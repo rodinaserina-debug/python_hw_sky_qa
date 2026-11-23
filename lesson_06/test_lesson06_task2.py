@@ -9,14 +9,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
-# Проверьте, что URL для пользователя 1 и пользователя 2 различаются.
-# Cookie пользователя 2 (airsworld)
-
-# Ссылка на профиль в шапке авторизованного пользователя
-# PROFILE_LINK = (By.CSS_SELECTOR, ".header__account a[href^='/user/']")
-# USERNAME_IN_HEADER = (By.CSS_SELECTOR, "p.header-username")
-
-
 def test_session_storage_auth():
     driver = webdriver.Chrome()
     driver.maximize_window()

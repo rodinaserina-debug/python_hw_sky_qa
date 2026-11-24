@@ -2,8 +2,10 @@
 #
 # Предварительные шаги:
 # Создано два аккаунта на https://gitflic.ru/:
-#   пользователь 1: login - yi5gnr@uqu.me  (test9);      password - 67890Qwerty
-#   пользователь 2: login - in6vq@airsworld.net (airsworld); password - 12345Qwerty
+# пользователь 1: login - yi5gnr@uqu.me  (test9);
+#                 password - 67890Qwerty
+# пользователь 2: login - in6vq@airsworld.net (airsworld);
+#                 password - 12345Qwerty
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -19,7 +21,7 @@ def test_session_storage_auth():
     # Установите cookie пользователя 1 (test9)
     driver.add_cookie({
             "name": "SESSION",
-            "value": "YzE1NWFmNGEtZTY2OS00YjI4LWI4ZTQtODdiZTM3ZTc4ZjY0",
+            "value": "NTYxODY4ODMtOGQyZS00YjNmLWI5Y2MtMTgxMjU1ZWVkNzVm",
             "domain": "gitflic.ru",
     })
 
@@ -38,6 +40,7 @@ def test_session_storage_auth():
 
     # Сохраните текущий URL.
     url_user_one = driver.current_url
+    print(f"URL user 1: {url_user_one}")
 
     # Разлогиньтесь (очистите куки).
     driver.delete_all_cookies()
@@ -48,7 +51,7 @@ def test_session_storage_auth():
     # Установите cookie пользователя 2 (airsworld)
     driver.add_cookie({
             "name": "SESSION",
-            "value": "YTNlM2I5MGEtMGZlYy00MzQ3LTgyYzctMmM5OTMxZmQzODk4",
+            "value": "MmM4MDBiNzItNWUxNy00OWNkLTkyMWYtYWYzOTNmZGY3Zjlj",
             "domain": "gitflic.ru",
     })
 
@@ -67,6 +70,7 @@ def test_session_storage_auth():
 
     # Сохраните текущий URL.
     login_user_two = driver.current_url
+    print(f"URL user 2: {login_user_two}")
 
     # Проверьте, что URL для пользователя 1 и пользователя 2 различаются.
     assert url_user_one != login_user_two
